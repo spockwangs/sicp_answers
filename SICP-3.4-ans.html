@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Eli Bendersky’s website » Blog Archive » SICP 3.4</title>
+
+
+
+<meta name="generator" content="WordPress 2.2"><!-- leave this for stats --> 
+
+<link rel="stylesheet" href="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Eli Bendersky’s website RSS Feed" href="http://eli.thegreenplace.net/feed/">
+<link rel="pingback" href="http://eli.thegreenplace.net/xmlrpc.php">
+
+<style type="text/css" media="screen">
+/*	To accomodate differing install paths of WordPress, images are referred only here,
+	and not in the wp-layout.css file. If you prefer to use only CSS for colors and what
+	not, then go right ahead and delete the following lines, and the image files. */
+		
+	body { background: url("http://eli.thegreenplace.net/wp-content/themes/default/images/kubrickbgcolor.jpg"); }	
+	#page { background: url("http://eli.thegreenplace.net/wp-content/themes/default/images/kubrickbgwide.jpg") repeat-y top; border: none; } 
+	#header { background: url("http://eli.thegreenplace.net/wp-content/themes/default/images/kubrickheader.jpg") no-repeat bottom center; }
+	#footer { background: url("http://eli.thegreenplace.net/wp-content/themes/default/images/kubrickfooter.jpg") no-repeat bottom; border: none; }
+
+    #headerimg { background: url('http://eli.thegreenplace.net/wp-content/themes/default/images/personalheader.gif') no-repeat top;}
+</style>
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://eli.thegreenplace.net/xmlrpc.php?rsd">
+<script type="text/javascript" src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/tw-sack.js"></script>
+<script type="text/javascript" src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/ajax-comment-preview-js.php"></script><!-- Google Ajax Search -->
+
+	
+
+	
+	<link href="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/gsearch.css" type="text/css" rel="stylesheet">
+	<style>	
+	
+	/* Width */
+	.gsc-control {
+	  	width: 190px;
+		overflow: hidden
+	}
+	.gs-result .gs-title,
+	.gs-result .gs-title * {
+		font-size: em;
+	  	color: #;
+	}
+	.gsc-results .gsc-trailing-more-results,
+	.gsc-results .gsc-trailing-more-results * {
+	  	color: #;
+	}
+	.gs-result a.gs-visibleUrl,
+	.gs-result .gs-visibleUrl {
+	  	color: #;
+	}
+	.gs-result a.gs-clusterUrl,
+	.gs-result .gs-clusterUrl {
+	  	color: #;
+	}
+	.gsc-resultsbox-visible {
+		display: table;
+		width: 100%;
+		overflow: hidden
+	}
+	</style>
+
+
+	<style>
+	img.gsc-branding-img {
+	display: none;
+	}
+	td.gsc-branding-text div.gsc-branding-text {
+	display: none;
+	}	
+	</style>
+
+		
+	<script src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/api" type="text/javascript"></script><script src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/default.js" type="text/javascript"></script><!-- Google AjaxSearch Plugin for WordPress initialization -->
+	
+	<script type="text/javascript"> 
+
+
+
+
+		function OnLoad()
+		{
+			
+			var searchControl = new GSearchControl();
+			searchControl .setLinkTarget(GSearch.LINK_TARGET_SELF); 
+			var webSearch = new GwebSearch();   
+			webSearch.setSiteRestriction("http://eli.thegreenplace.net");
+			webSearch.setUserDefinedLabel("Results");
+			webSearch.setUserDefinedClassSuffix("webSearch");
+											var options = new GsearcherOptions();
+			options.setExpandMode(GSearchControl.EXPAND_MODE_OPEN);
+			searchControl.addSearcher(webSearch, options);
+											
+
+			var drawOptions = new GdrawOptions();
+			drawOptions.setDrawMode(GSearchControl.DRAW_MODE_LINEAR);
+			searchControl.draw(document.getElementById("searchcontrol"),drawOptions);
+		}
+		GSearch.setOnLoadCallback(OnLoad);
+
+	</script><!-- Google Maps Plugin for WordPress (end) --></head><body>
+<div id="page">
+
+
+<div id="header">
+	<a href="http://eli.thegreenplace.net/"><img src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/personalheader.gif"></a>
+<!--	<div id="headerimg">
+		<h1><a href="http://eli.thegreenplace.net/">Eli Bendersky&#8217;s website</a></h1>
+		<div class="description">Eli Bendersky&#8217;s personal website</div>
+	</div>-->
+</div>
+<hr>
+
+	<div id="content" class="widecolumn">
+				
+  	
+		<div class="navigation">
+			<div class="alignleft"><a href="http://eli.thegreenplace.net/archives/">Archives</a></div><br><br>
+			<div class="alignleft">« Prev: <a href="http://eli.thegreenplace.net/2007/10/20/sharing-files-and-printers-through-a-firewall/">Sharing files and printers through a firewall</a></div><br>
+			<div class="alignleft">» Next: <a href="http://eli.thegreenplace.net/2007/10/27/textile-a-simple-markup-language-for-the-web/">Textile - a simple markup language for the web</a></div>
+		</div>
+		<br>
+		<div class="post" id="post-841">
+			<h2><a href="http://eli.thegreenplace.net/2007/10/26/sicp-334/" rel="bookmark" title="Permanent Link: SICP 3.4">SICP 3.4</a></h2>
+			<small>October 26th, 2007 at 11:05 am <!-- by eliben --></small>
+			
+			<div class="entry">
+				<p>I’m going to use <span class="caps">PLT</span> Scheme for this section, because <span class="caps">CLISP</span> doesn’t have thread support. <span class="caps">PLT</span> Scheme supports “green” threads<sup><a href="#fn1">1</a></sup> and synchronization elements.</p>
+<p>This is <code>parallel-execute</code>:</p>
+<pre>(define (parallel-execute . thunks)
+  (for-each thread thunks))
+</pre>
+<p>The <code>thread</code> function invokes its argument in a separate thread and returns immediately<sup><a href="#fn2">2</a></sup>.</p>
+<p>And this is <code>make-serializer</code>:</p>
+<pre>(define (make-serializer)
+  (let ((mutex (make-semaphore 1)))
+    (lambda (p)
+      (define (serialized-p . args)
+        (semaphore-wait mutex)
+        (let ((val (apply p args)))
+          (semaphore-post mutex)
+          val))
+      serialized-p)))
+</pre>
+<p>It uses <span class="caps">PLT</span>’s <em>semaphore</em> object to do its work.</p>
+<h4>Exercise 3.38</h4>
+<p><strong>a.</strong> To list the possible values, I’ll map the possible orders of execution:</p>
+<pre>[peter, paul, mary] -&gt; 45
+[peter, mary, paul] -&gt; 35
+[mary, peter, paul] -&gt; 40
+[mary, paul, peter] -&gt; 40
+[paul, peter, mary] -&gt; 45
+[paul, mary, peter] -&gt; 50
+</pre>
+<p>It is interesting to notice here that order between commutative
+operations (Peter and Paul) doesn’t matter. The relative order of Mary
+does matter, however.</p>
+<p><strong>b.</strong> Consider one option: Peter’s code runs first, fetches the <code>balance</code>
+of 100 and adds 10 to it, but doesn’t get the chance to store it back
+before a task switch. Then comes a task switch and Paul’s code runs
+fully, setting the balance to 80. Peter’s code then comes back and
+stores the 110 it has computed to <code>balance</code> (thus completely hiding Paul’s operation). Mary’s code then sets <code>balance</code> to 55.</p>
+<h4>Exercise 3.39</h4>
+<p>Note that this is not a full serialization of the computations. The
+second computation can still interfere between the computation and
+assignment of the first. Therefore, the possible results are:</p>
+<ul>
+<li>101: P1 completes, then P2 completes</li>
+<li>100: P1 computes <code>(* x x)</code>, then P2 completes (and sets <code>x</code> to 101), then P1 executes the assignment.</li>
+<li>121: P2 completes, then P1 completes</li>
+</ul>
+<h4>Exercise 3.40</h4>
+<p>Now we have a full serialization, and the only thing that can differ
+between two executions is the order in the execution of P1 and P2.
+However, since the operations P1 and P2 are commutative, the same
+result will be produced in both cases: 1,000,000</p>
+<h4>Exercise 3.41</h4>
+<p>Since both <code>withdraw</code> and <code>deposit</code> make a
+single modification to the balance, I can’t see how accessing it can
+result in anomalous behavior. Depending on the order of execution of
+the access relatively to <code>withdraw</code>, one can either see the old or the new value – but this is allowed, since the value is consistent with reality.</p>
+<p>Perhaps, had <code>withdraw</code> did two assignments to the balance, for whatever reason, we could hit an intermediate state with an access.</p>
+<h4>Exercise 3.42</h4>
+<p>It is a safe change to make, and I can’t see any kind of concurrency allowed by the original solution but not this one.</p>
+<p>The reason for this is that the real work of the serializer is done
+in the call to protected procedures, and not in their creation. In
+their creation the function <code>serialized-p</code> is created and returned, and only when it’s called it waits on the mutex.</p>
+<h4>Exercise 3.43</h4>
+<p>First, let’s examine the serial case. The exchange operation given
+two accounts with balances A and B leaves the balances B and A,
+changing the order<sup><a href="#fn3">3</a></sup> but not the sums. The same principle applies to exchanging any number of accounts.</p>
+<p>This will be violated in the first version of <code>exchange</code>
+defined in the book. Suppose that the accounts are: a1(10), a2(20),
+a3(30). Peter exchanges a1 and a2 while Paul concurrently exchanges a1
+and a3. Let’s examine the following scenario:</p>
+<p>Peter’s <code>exchange</code> computes the difference: -10. Now, Paul’s <code>exchange</code> is switched to, and completes its whole work by leaving the accounts as: a1(30), a2(20), a3(10). Peter’s <code>exchange</code>
+resumes its work, withdraws -10 from a1, and adds -10 to a2. The final
+state is: a1(40), a2(10), a3(10), which is completely inconsistent.</p>
+<p>However, <code>exchange</code> always preserves the sum of the
+balances of its input accounts, by taking the same sum from one account
+and adding it to another.</p>
+<p>Had the individual accesses not been serialized, we’d get back to
+the problems examined in the beginning of the chapter. A call to <code>withdraw</code> could become intermixed with a call to <code>deposit</code> for the same account, leaving its balance completely incorrect.</p>
+<h4>Exercise 3.44</h4>
+<p>I’ll take Ben’s side here. Since the withdrawal and deposit are serialized, I can’t see how the <code>transfer</code>
+operation can leave any of the account in an inconsistent state. Even
+if the transfer is interrupted between the withdraw and deposit, it
+still holds the correct sum to deposit into the target account and will
+do it eventually. In any given moment, an account holds its balance
+plus amounts “owed to it” by all pending <code>transfer</code> operations. Therefore, if all transfers complete, eventually the balances in all accounts will be correct.</p>
+<p>There is an essential difference between the transfer problem and the exchange problem, and it is the lack of computation of <code>difference</code>, which may examine some intermediate state of the balance which no longer reflects reality if <code>exchange</code> is switched out and in between the computation of the difference and the account operations.</p>
+<h4>Exercise 3.45</h4>
+<p>When <code>serialized-exchange</code> is called, the serializers of both accounts are activated. Then, when <code>exchange</code> tries to call <code>deposit</code> or <code>withdraw</code>, it can’t because these functions also try to use the serializer. It will block on the call of <code>withdraw</code> from account1 and stay in this state indefinitely.</p>
+<h4>Exercise 3.46</h4>
+<p>Suppose that p1 executes the test <code>(if (car cell)</code> on an
+untaken mutex. The test suceeds, but p1 is switched out. p2 executes
+the same test which also suceeds (since p1 still hasn’t reached the
+acquiring code). In this way, both p1 and p2 will eventually acquire
+the mutex.</p>
+<h4>Exercise 3.47</h4>
+<p>Note that the implementation of <code>make-serializer</code> in <span class="caps">PLT</span>
+Scheme I posted above uses semaphores to implement mutexes. This is
+trivial, since a mutex is just a special case of a semaphore. In this
+exercise, we’ll see how to implement semaphores in terms of mutexes,
+which is a little more complicated.</p>
+<p><strong>a.</strong> Here’s the implementation using a mutex:</p>
+<pre>(define (make-semaphore-mtx maximal)
+  (let ((count maximal)
+        (mutex (make-mutex)))
+    (define (the-sema m)
+      (cond ((eq? m 'release)
+              (mutex 'acquire)
+                (unless (= count maximal)
+                  (set! count (+ 1 count)))
+              (mutex 'release))
+            ((eq? m 'acquire)
+              (cond
+                ((&gt; count 0)
+                  (mutex 'acquire)
+                  (set! count (- count 1))
+                  (mutex 'release))
+                (else
+                  (the-sema 'acquire))))
+            (else
+              (error "Unknown request -- " m))))
+    the-sema))
+</pre>
+<p>This semaphore is a fancy counter that blocks when asked to acquire
+when empty. It uses a mutex to protect all accesses to the counter so
+that concurrent calls will leave it in a consistent state.</p>
+<p><strong>b.</strong> Using <code>test-and-set!</code> is almost identical, except that we’ll have to implement the wait on a locked cell manually:</p>
+<pre>(define (loop-test-and-set! cell)
+  (if (test-and-set! cell)
+    (loop-test-and-set! cell)))
+
+(define (make-semaphore-ts maximal)
+  (let ((count maximal)
+        (guard (list #f)))
+    (define (the-sema m)
+      (cond ((eq? m 'release)
+              (loop-test-and-set! guard)
+                (unless (= count maximal)
+                  (set! count (+ 1 count)))
+              (clear! guard))
+            ((eq? m 'acquire)
+              (cond
+                ((&gt; count 0)
+                  (loop-test-and-set! guard)
+                  (set! count (- count 1))
+                  (clear! guard))
+                (else
+                  (the-sema 'acquire))))
+            (else
+              (error "Unknown request -- " m))))
+    the-sema))
+</pre>
+<h4>Exercise 3.48</h4>
+<p>In the current implementation, given the exchange between a1 and a2,
+in parallel with the exchange between a2 and a1, we may have a
+situation where one process holds a lock on a1 while another holds a
+lock on a2. If we number the accounts, when both processes will first
+attempt to lock a1. Since a2 can be locked only when a1 is locked,
+we’ll have no deadlock.</p>
+<p>Here’s the implementation:</p>
+<pre>(define (make-account number balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance (- balance amount))
+               balance)
+        "Insufficient funds"))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((balance-serializer (make-serializer)))
+    (define (dispatch m)
+      (cond ((eq? m 'withdraw) withdraw)
+            ((eq? m 'deposit) deposit)
+            ((eq? m 'number) number)
+            ((eq? m 'balance) balance)
+            ((eq? m 'serializer) balance-serializer)
+            (else (error "Unknown request -- MAKE-ACCOUNT"
+                         m))))
+    dispatch))
+</pre>
+<pre>(define (serialized-exchange account1 account2)
+  (let ((serializer1 (account1 'serializer))
+        (serializer2 (account2 'serializer)))
+    (if (&lt; (account1 'number) (account2 'number))
+      ((serializer2 (serializer1 exchange))
+        account1 account2)
+      ((serializer1 (serializer2 exchange))
+        account1 account2))))
+</pre>
+<p></p><center><img src="Eli%20Bendersky%E2%80%99s%20website%20%C2%BB%20Blog%20Archive%20%C2%BB%20SICP%203.4_files/hline.jpg" alt="" height="5" width="320"></center>
+<p id="fn1"><sup>1</sup> Also called “interpreter threads”. These are
+threads implemented in the interpreter, unrelated to the OS native
+threads. This means that such threads can’t really be utilized to
+increase performance on parallel machines (since they run in a single
+process), and also that if one thread waits on a system call it blocks
+all the others. On the other hand, on uniprocessor computers, green
+threads have been found to be faster than native threads for some
+applications, because they’re very light weight and context switching
+is very fast. Additionally, being implemented on the level of the
+interpreter, green threads behave exactly the same way on all platforms.</p>
+<p><em>Thanks to Jens Axel Soegaard for bringing this trade off to my attention.</em></p>
+<p id="fn2"><sup>2</sup> It actually returns the thread <em>descriptor</em> by which we can later access the thread, but we don’t use this feature here.</p>
+<p id="fn3"><sup>3</sup> Order is defined if we sort the accounts in
+some way unrelated to the balance in them. Say, lexicographically by
+the account’s object name.</p>
+	
+					
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						 
+						on Friday, October 26th, 2007 at 11:05 am						and is filed under <a href="http://eli.thegreenplace.net/category/programming/lisp/sicp/" title="View all posts in SICP" rel="category tag">SICP</a>.
+						You can follow any responses to this entry through the <a href="http://eli.thegreenplace.net/2007/10/26/sicp-334/feed/">RSS 2.0</a> feed. 
+						
+													You can skip to the end and leave a response. Pinging is currently not allowed.
+			
+												
+					</small>
+				</p>
+	
+			</div>
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">2 Responses to “SICP 3.4”</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-115503">
+			<cite>mats</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-115503" title="">March 12th, 2008 at 6:11 am</a> </small>
+
+			<p>thanks, this helped me.</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://eli.thegreenplace.net/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input name="author" id="author" value="" size="22" tabindex="1" type="text">
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input name="email" id="email" value="" size="22" tabindex="2" type="text">
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input name="url" id="url" value="" size="22" tabindex="3" type="text">
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100" rows="10" tabindex="4"></textarea><div id="answerdiv">
+    	    <p><br><b>
+<label for="answer">ANTI SPAM CHALLENGE: please write the number 4 into this box before clicking `Submit Comment`</label><br>            <input name="answer" id="answer" size="6" tabindex="4" type="text"> 
+            </b></p>
+        </div></p>
+
+<p><input name="submit" id="submit" tabindex="5" value="Submit Comment" type="submit">
+<input name="comment_post_ID" value="841" type="hidden">
+</p>
+<input name="acp-preview" id="acp-preview" tabindex="6" value="Preview" type="button"><div id="ajax-comment-preview">Click
+the "Preview" button to preview your comment here. The text box accepts
+HTML, so use 'code' and 'pre' tags appropriately if you want to post
+source code.</div>        
+        
+         <script type="text/javascript">
+            var commentField = document.getElementById("comment");
+            var submitp = commentField.parentNode;
+            var answerDiv = document.getElementById("answerdiv");	    
+            submitp.appendChild(answerDiv, commentField);
+        </script>
+        
+        
+</form>
+
+
+	
+		
+	</div>
+
+<hr>
+<div id="footer">
+	<p>
+		Eli Bendersky’s website is powered by 
+		<a href="http://wordpress.org/">WordPress</a>
+		<br><a href="feed://http//eli.thegreenplace.net/feed/">Entries (RSS)</a>
+		and <a href="feed://http//eli.thegreenplace.net/comments/feed/">Comments (RSS)</a>.
+		<!-- 26 queries. 0.340 seconds. -->
+	</p>
+</div>
+</div>
+
+<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/kubrick/ -->
+
+		</body></html>
